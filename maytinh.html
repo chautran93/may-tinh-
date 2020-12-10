@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h2>CACULATOR</h2>
+    <form>
+        <input type="number" id="sothu1" onchange="change1()">
+        <select name="pheptinh" id="pheptinh">
+            <option value="cong">+</option>
+            <option value="tru">-</option>
+            <option value="nhan">*</option>
+            <option value="chia">/</option>
+        </select>
+        <input type="number" id="sothu2" onchange="change2()">
+        <input type="button" onclick="myclick()" value="=">
+        <p id="display">RESULT:</p>
+        <input type="reset" value="Reset">
+    </form>
+    <script>
+        function change1() {
+            let a = document.getElementById('sothu1').value;
+            a = parseFloat(a);
+            return a;
+        }
+        function change2() {
+            let b = document.getElementById('sothu2').value;
+            b = parseFloat(b);
+            return b;
+        }
+        function select() {
+            let c = document.getElementById('pheptinh').value;
+            return c;
+        }
+        function myclick() {
+            let select1 = select();
+            let d = change1();
+            let e = change2();
+            d = parseFloat(d);
+            e = parseFloat(e);
+            let result;
+            if (select1 == "cong") {
+                result = d + e;
+            }
+            else {
+                if (select1 == "tru") {
+                    result = d - e;
+                }
+                else {
+                    if (select1 == "nhan") {
+                        result = d * e;
+                    }
+                    else {
+                        result = d / e;
+                    }
+                }
+            }
+            document.getElementById('display').innerHTML = result;
+        }
+    </script>
+</body>
+
+</html>
